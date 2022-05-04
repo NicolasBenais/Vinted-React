@@ -34,7 +34,7 @@ export default function Home() {
             <div className="owner">
               {item.owner.account.username}
               <img
-                src={item.owner.account.avatar.asset_id}
+                src={item.owner.account.avatar.secure_url}
                 alt="Owner avatar"
               />
             </div>

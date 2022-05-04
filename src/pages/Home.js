@@ -27,13 +27,7 @@ export default function Home() {
       {data.offers.map((item) => {
         return (
           <div>
-            <div
-              className="item"
-              key={item._id}
-              onClick={() => {
-                console.log(item);
-              }}
-            >
+            <div className="item" key={item._id}>
               <div className="owner">
                 {item.owner.account.avatar && (
                   <img

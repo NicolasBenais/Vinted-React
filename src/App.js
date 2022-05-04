@@ -15,7 +15,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/offer" element={<Offer />} />
+        <Route path="/offer/item.id" element={<Offer />} />
       </Routes>
     </Router>
   );

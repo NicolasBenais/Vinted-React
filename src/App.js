@@ -10,12 +10,10 @@ function App() {
     <Router>
       <nav>
         <Link to="/home"> Home</Link>
-        <br />
-        <Link to="/offer"> Offer</Link>
       </nav>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/offer/:item._id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer />} />
       </Routes>
     </Router>
   );

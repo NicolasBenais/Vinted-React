@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [data, setData] = useState();
@@ -25,22 +26,39 @@ export default function Home() {
     <div>
       {data.offers.map((item) => {
         return (
-          <div
-            key={item._id}
-            onClick={() => {
-              console.log(item);
-            }}
-          >
-            <div className="owner">
-              {item.owner.account.username}
-              <img
-                src={item.owner.account.avatar.secure_url}
-                alt="Owner avatar"
-              />
+          <div>
+            <div
+              className="item"
+              key={item._id}
+              onClick={() => {
+                console.log(item);
+              }}
+            >
+              <div className="owner">
+                {item.owner.account.avatar && (
+                  <img
+                    className="avatar"
+                    src={item.owner.account.avatar.secure_url}
+                    alt="Owner avatar"
+                  />
+                )}
+                {item.owner.account.username}
+              </div>
+              <Link to={`/offer/${item.id}`}>
+                <div className="item_details">
+                  {/* On verra plus tard pour la photo */}
+                  {item.product_price} €
+                  {item.product_details.map((details) => {
+                    return (
+                      <div>
+                        {details.TAILLE && <p> {details.TAILLE} </p>}
+                        {details.MARQUE}
+                      </div>
+                    );
+                  })}
+                </div>
+              </Link>
             </div>
-            {item.product_details.map((product) => {
-              return <div>{}</div>;
-            })}
           </div>
         );
       })}

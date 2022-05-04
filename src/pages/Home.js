@@ -38,7 +38,7 @@ export default function Home() {
                 )}
                 {item.owner.account.username}
               </div>
-              <Link to={`/offer/${item.id}`}>
+              <Link to={`/offer/${item._id}`}>
                 <div className="item_details">
                   {/* On verra plus tard pour la photo */}
                   {item.product_price} €

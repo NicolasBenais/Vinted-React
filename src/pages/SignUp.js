@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import Header from "../components/Header";
 
 export default function SignUp() {
@@ -7,16 +8,6 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-
-  const response = axios.post(
-    "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-    {
-      email: email,
-      username: username,
-      password: password,
-      newletter: newsletter,
-    }
-  );
 
   return (
     <div>
@@ -77,9 +68,22 @@ export default function SignUp() {
           </div>
           <button
             type="submit"
-            onClick={() => {
-              console.log(username, email, password, newsletter);
-              console.log(response);
+            onClick={async () => {
+              try {
+                const response = await axios.post(
+                  "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+                  {
+                    email: email,
+                    username: username,
+                    password: password,
+                    newletter: newsletter,
+                  }
+                );
+                console.log(response.data.token);
+                Cookies.set("CookieTaRace", response.data.token);
+              } catch (error) {
+                console.log(error.response.data);
+              }
             }}
           >
             S'inscrire

@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
 
 const Header = ({ isCookieTokenPresent }) => {
-  const [isTokenPresent, setIsTokenPresent] = useState(isCookieTokenPresent);
-  useEffect(() => {}, [isTokenPresent]);
-
   return (
     <header className="header">
       <Link to={"/"}>
@@ -37,7 +33,6 @@ const Header = ({ isCookieTokenPresent }) => {
               className="log-out_btn"
               onClick={() => {
                 Cookies.remove("TokenCookie");
-                setIsTokenPresent(false);
               }}
             >
               Se déconnecter

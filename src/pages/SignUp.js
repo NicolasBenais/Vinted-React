@@ -8,11 +8,10 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [isTokenPresent, setIsTokenPresent] = useState(false);
 
   return (
     <div>
-      <Header isCookieTokenPresent={isTokenPresent} />
+      <Header />
       <div className="sign-up">
         <h2>S'inscrire</h2>
         <form

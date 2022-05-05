@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="header">
-      <Link to={"/home"}>
+      <Link to={"/"}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="105"
@@ -26,8 +26,12 @@ const Header = () => {
         />
       </div>
       <div>
-        <button className="sign_in_btn">S'inscrire</button>
-        <button className="log_in_btn">Se connecter</button>
+        <Link to={"/signup"}>
+          <button className="sign_in_btn">S'inscrire</button>
+        </Link>
+        <Link to={"/login"}>
+          <button className="log_in_btn">Se connecter</button>
+        </Link>
       </div>
       <button className="sold_btn">Vends tes articles</button>
     </header>

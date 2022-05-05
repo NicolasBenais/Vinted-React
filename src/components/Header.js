@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Header = () => {
   return (
@@ -26,12 +27,27 @@ const Header = () => {
         />
       </div>
       <div>
-        <Link to={"/signup"}>
-          <button className="sign_in_btn">S'inscrire</button>
-        </Link>
-        <Link to={"/login"}>
-          <button className="log_in_btn">Se connecter</button>
-        </Link>
+        {Cookies.get("TokenCookie") ? (
+          <div>
+            <button
+              className="log-out_btn"
+              onClick={() => {
+                Cookies.remove("TokenCookie");
+              }}
+            >
+              Se déconnecter
+            </button>
+          </div>
+        ) : (
+          <div>
+            <Link to={"/signup"}>
+              <button className="sign_in_btn">S'inscrire</button>
+            </Link>
+            <Link to={"/login"}>
+              <button className="log_in_btn">Se connecter</button>
+            </Link>
+          </div>
+        )}
       </div>
       <button className="sold_btn">Vends tes articles</button>
     </header>

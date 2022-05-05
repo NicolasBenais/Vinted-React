@@ -43,12 +43,18 @@ button:active {
 
 .sign_in_btn,
 .log_in_btn,
-.sold_btn {
+.sold_btn,
+.log-out_btn {
   height: 30px;
   width: 115px;
-  border: 1px solid #2cb1ba;
   border-radius: 5px;
   font-size: 12px;
+}
+
+.sign_in_btn,
+.log_in_btn,
+.sold_btn {
+  border: 1px solid #2cb1ba;
 }
 
 .sign_in_btn,
@@ -59,6 +65,12 @@ button:active {
 
 .sign_in_btn {
   margin-right: 20px;
+}
+
+.log-out_btn {
+  border: none;
+  background-color: #c2175b;
+  color: #fff;
 }
 
 .sold_btn {

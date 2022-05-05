@@ -80,7 +80,9 @@ export default function SignUp() {
                   }
                 );
                 console.log(response.data.token);
-                Cookies.set("CookieTaRace", response.data.token);
+                Cookies.set("TokenCookie", response.data.token, {
+                  expires: 3,
+                });
               } catch (error) {
                 console.log(error.response.data);
               }

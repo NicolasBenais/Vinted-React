@@ -2,9 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -57,6 +58,7 @@ export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
                 console.log(response.data.token);
                 Cookies.set("TokenCookie", response.data.token, { expires: 3 });
                 setIsTokenPresent(true);
+                navigate("/");
               } catch (error) {
                 console.log(error);
                 console.log(error.response.data);

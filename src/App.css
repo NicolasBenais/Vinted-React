@@ -1,3 +1,5 @@
+/* -------- GENERAL RULES -------- */
+
 * {
   box-sizing: border-box;
 }
@@ -5,6 +7,11 @@ body {
   /* font-family: "Open Sans", sans-serif; */
   font-family: "Maison Neue", sans-serif;
 }
+
+button {
+  cursor: pointer;
+}
+
 /* -------- HEADER -------- */
 
 .home_header {
@@ -229,5 +236,4 @@ li {
   padding: 0 16px;
   line-height: 36px;
   margin-top: 32px;
-  cursor: pointer;
 }

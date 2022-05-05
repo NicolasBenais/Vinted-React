@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../components/Home-Header";
-import bannerImg from "/Users/nicolasbenais/Dev/LeReacteur/React/08/Exercices/vinted-react/src/assets/img/banner-tablets-up-afe3d19776592a72f165c1bb93fd02c5528250a8c670ecc1656654323f9d4856.jpeg";
+import bannerImg from "../assets/img/banner_img.jpeg";
 
 export default function Home({ setIsTokenPresent, isTokenPresent }) {
   const [data, setData] = useState();

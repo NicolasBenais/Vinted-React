@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className="home_header">
       <Link to={"/home"}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

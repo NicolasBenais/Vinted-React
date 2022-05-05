@@ -7,7 +7,8 @@ body {
   font-family: "Maison Neue", sans-serif;
 }
 
-button {
+button,
+.fa-magnifying-glass {
   cursor: pointer;
   transition: transform 120ms;
 }
@@ -40,9 +41,6 @@ button:active {
 .fa-magnifying-glass {
   position: absolute;
   left: 12px;
-}
-.fa-magnifying-glass:hover {
-  cursor: pointer;
 }
 
 .sign_in_btn,
@@ -78,7 +76,8 @@ button:active {
 }
 
 .sold_btn,
-.form_btn {
+.form_btn,
+.banner_btn {
   background-color: #2cb1ba;
   color: #fff;
 }
@@ -104,11 +103,52 @@ header {
   justify-content: space-around;
 }
 
+/* -------- BANNER -------- */
+
+.banner_img {
+  width: 100%;
+  height: 455px;
+  position: relative;
+  object-fit: cover;
+}
+
+.banner > svg {
+  position: absolute;
+  top: 475px;
+  left: 0;
+}
+
+.banner_text {
+  position: absolute;
+  top: 200px;
+  left: 80px;
+  height: 270px;
+  width: 410px;
+  padding: 25px;
+  border-radius: 3px;
+  font-size: 34px;
+  background-color: #fff;
+  line-height: 28px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.banner_btn {
+  height: 45px;
+  width: 187px;
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  padding: 0 14px;
+  margin-top: 60px;
+}
+
 /* -------- CENTER -------- */
 
 .center {
   width: 1280px;
-  margin: 0 auto;
+  margin: 28px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

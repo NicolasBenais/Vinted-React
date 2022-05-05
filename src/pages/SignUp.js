@@ -8,10 +8,11 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [isTokenPresent, setIsTokenPresent] = useState(false);
 
   return (
     <div>
-      <Header />
+      <Header isCookieTokenPresent={isTokenPresent} />
       <div className="sign-up">
         <h2>S'inscrire</h2>
         <form
@@ -83,6 +84,7 @@ export default function SignUp() {
                 Cookies.set("TokenCookie", response.data.token, {
                   expires: 3,
                 });
+                setIsTokenPresent(true);
               } catch (error) {
                 console.log(error.response.data);
               }

@@ -2,15 +2,9 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-const Header = () => {
-  const [isTokenPresent, setIsTokenPresent] = useState(false);
-  useEffect(() => {
-    // if (Cookies.get("TokenCookie")) {
-    //   setIsTokenPresent(true);
-    // } else {
-    //   setIsTokenPresent(false);
-    // }
-  }, [isTokenPresent]);
+const Header = ({ isCookieTokenPresent }) => {
+  const [isTokenPresent, setIsTokenPresent] = useState(isCookieTokenPresent);
+  useEffect(() => {}, [isTokenPresent]);
 
   return (
     <header className="header">

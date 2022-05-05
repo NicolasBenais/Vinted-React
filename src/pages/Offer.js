@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 
-const Product = () => {
+const Product = ({ setIsTokenPresent, isTokenPresent }) => {
   const { id } = useParams();
 
   const [data, setData] = useState();
@@ -29,7 +29,11 @@ const Product = () => {
     <div>Loading...</div>
   ) : (
     <div>
-      <Header className="header_in_offer" />
+      <Header
+        className="header_in_offer"
+        isTokenPresent={isTokenPresent}
+        setIsTokenPresent={setIsTokenPresent}
+      />
       <div className="offer_body">
         <div className="offer_container">
           <div>

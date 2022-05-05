@@ -15,6 +15,10 @@ button:active {
   transform: scale(0.98);
 }
 
+::placeholder {
+  color: #d8d8d9;
+}
+
 /* -------- HEADER -------- */
 
 .search_container {
@@ -73,7 +77,8 @@ button:active {
   color: #fff;
 }
 
-.sold_btn {
+.sold_btn,
+.form_btn {
   background-color: #2cb1ba;
   color: #fff;
 }
@@ -273,4 +278,65 @@ li {
   width: 275px;
   display: flex;
   flex-direction: column;
+}
+
+.form_input {
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  margin-bottom: 20px;
+  outline: none;
+  font-size: 16px;
+}
+
+.checkbox_container {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox_input {
+  margin-right: 20px;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border: solid 2px #4f4f4f;
+  border-radius: 5px;
+}
+
+.checkbox > span {
+  font-size: 15px;
+  line-height: 13px;
+  text-align: center;
+  color: #666;
+}
+
+.checkbox_container > p {
+  text-align: left;
+  color: #999;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.form_btn {
+  height: 45px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.sign-up_form > a,
+.log-in_form > a {
+  color: #2cb1ba;
+  font-size: 12px;
+  text-decoration: none;
+  margin-top: 20px;
+  text-align: center;
 }

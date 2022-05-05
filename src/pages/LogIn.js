@@ -2,13 +2,17 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
-export default function LogIn() {
+export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
     <div>
-      <Header />
+      <Header
+        isTokenPresent={isTokenPresent}
+        setIsTokenPresent={setIsTokenPresent}
+      />
       <div className="log-in">
         <h2>Se connecter</h2>
         <form
@@ -18,8 +22,9 @@ export default function LogIn() {
           }}
         >
           <input
+            className="form_input"
             type="email"
-            placeholder="Email"
+            placeholder="Adresse email"
             name="email"
             onChange={(event) => {
               setEmail(event.target.value);
@@ -28,6 +33,7 @@ export default function LogIn() {
           />
 
           <input
+            className="form_input"
             type="password"
             placeholder="Mot de passe"
             name="password"
@@ -37,6 +43,7 @@ export default function LogIn() {
             value={password}
           />
           <button
+            className="form_btn"
             type="submit"
             onClick={async () => {
               try {
@@ -49,13 +56,16 @@ export default function LogIn() {
                 );
                 console.log(response.data.token);
                 Cookies.set("TokenCookie", response.data.token, { expires: 3 });
+                setIsTokenPresent(true);
               } catch (error) {
+                console.log(error);
                 console.log(error.response.data);
               }
             }}
           >
             Se connecter
           </button>
+          <Link to={"/signup"}>Pas encore de compte ? Inscris-toi !</Link>
         </form>
       </div>
     </div>

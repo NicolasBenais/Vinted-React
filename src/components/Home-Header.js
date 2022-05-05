@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Header = () => {
+const Header = ({ setIsTokenPresent, isTokenPresent }) => {
   return (
     <header className="home_header">
       <Link to={"/"}>
@@ -27,9 +27,17 @@ const Header = () => {
         />
       </div>
       <div>
-        {Cookies.get("TokenCookie") ? (
+        {isTokenPresent ? (
           <div>
-            <button className="log-out_btn">Se déconnecter</button>
+            <button
+              className="log-out_btn"
+              onClick={() => {
+                Cookies.remove("TokenCookie");
+                setIsTokenPresent(false);
+              }}
+            >
+              Se déconnecter
+            </button>
           </div>
         ) : (
           <div>

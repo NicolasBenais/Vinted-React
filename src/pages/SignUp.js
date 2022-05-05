@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +12,10 @@ export default function SignUp() {
 
   return (
     <div>
-      <Header />
+      <Header
+        isTokenPresent={isTokenPresent}
+        setIsTokenPresent={setIsTokenPresent}
+      />
       <div className="sign-up">
         <h2>S'inscrire</h2>
         <form
@@ -21,6 +25,7 @@ export default function SignUp() {
           }}
         >
           <input
+            className="form_input"
             type="text"
             placeholder="Nom d'utilisateur"
             name="name"
@@ -31,6 +36,7 @@ export default function SignUp() {
           />
 
           <input
+            className="form_input"
             type="email"
             placeholder="Email"
             name="email"
@@ -41,6 +47,7 @@ export default function SignUp() {
           />
 
           <input
+            className="form_input"
             type="password"
             placeholder="Mot de passe"
             name="password"
@@ -53,6 +60,7 @@ export default function SignUp() {
           <div className="checkbox_container">
             <div className="checkbox">
               <input
+                className="checkbox_input"
                 type="checkbox"
                 onClick={() => {
                   setNewsletter(!newsletter);
@@ -67,6 +75,7 @@ export default function SignUp() {
             </p>
           </div>
           <button
+            className="form_btn"
             type="submit"
             onClick={async () => {
               try {
@@ -85,12 +94,14 @@ export default function SignUp() {
                 });
                 setIsTokenPresent(true);
               } catch (error) {
+                console.log(error);
                 console.log(error.response.data);
               }
             }}
           >
             S'inscrire
           </button>
+          <Link to={"/login"}>Tu as déjà un compte ? Connecte-toi !</Link>
         </form>
       </div>
     </div>

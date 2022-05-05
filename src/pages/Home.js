@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Header from "../components/Home-Header";
 
-export default function Home() {
+export default function Home({ setIsTokenPresent, isTokenPresent }) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +28,10 @@ export default function Home() {
   ) : (
     <div>
       {/* -------- HEADER -------- */}
-      <Header />
+      <Header
+        isTokenPresent={isTokenPresent}
+        setIsTokenPresent={setIsTokenPresent}
+      />
 
       {/* -------- CENTER -------- */}
       <div className="center">

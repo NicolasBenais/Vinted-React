@@ -42,6 +42,7 @@ button:active {
 .fa-magnifying-glass {
   position: absolute;
   left: 12px;
+  top: 12px;
 }
 
 .sign_in_btn,
@@ -91,6 +92,40 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.checkbox_price_sort {
+  margin-right: 25px;
+}
+
+/* .checkbox_price_sort_input {
+  display: none;
+} */
+
+.wrapper {
+  background-color: #2cb1ba;
+  border-radius: 10px;
+  width: 42px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.knob {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #666;
+  border-radius: 100%;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  transition: left 0.1s ease-in-out 0s;
+  font-weight: 700;
 }
 
 /* Offer page's header */

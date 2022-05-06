@@ -8,9 +8,13 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+// import TestHeader from "./pages/TestHeader";
 
 function App() {
-  const [filters, setFilters] = useState("");
+  const [serchBarFilter, setSerchBarFilter] = useState({});
+  const [checkboxOn, setCheckboxOn] = useState(false);
+  const [priceMinFilter, setPriceMinFilter] = useState(0);
+  const [priceMaxFilter, setPriceMaxFilter] = useState(10000);
   const [isTokenPresent, setIsTokenPresent] = useState(
     Cookies.get("TokenCookie") ? true : false
   );
@@ -24,8 +28,14 @@ function App() {
             <Home
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              filters={filters}
-              setFilters={setFilters}
+              serchBarFilter={serchBarFilter}
+              setSerchBarFilter={setSerchBarFilter}
+              checkboxOn={checkboxOn}
+              setCheckboxOn={setCheckboxOn}
+              priceMinFilter={priceMinFilter}
+              setPriceMinFilter={setPriceMinFilter}
+              priceMaxFilter={priceMaxFilter}
+              setPriceMaxFilter={setPriceMaxFilter}
             />
           }
         />
@@ -35,8 +45,8 @@ function App() {
             <SignUp
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              filters={filters}
-              setFilters={setFilters}
+              serchBarFilter={serchBarFilter}
+              setSerchBarFilter={setSerchBarFilter}
             />
           }
         />
@@ -46,8 +56,8 @@ function App() {
             <LogIn
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              filters={filters}
-              setFilters={setFilters}
+              serchBarFilter={serchBarFilter}
+              setSerchBarFilter={setSerchBarFilter}
             />
           }
         />
@@ -57,11 +67,29 @@ function App() {
             <Offer
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              filters={filters}
-              setFilters={setFilters}
+              serchBarFilter={serchBarFilter}
+              setSerchBarFilter={setSerchBarFilter}
             />
           }
         />
+
+        {/* <Route
+          path="/test"
+          element={
+            <TestHeader
+              isTokenPresent={isTokenPresent}
+              setIsTokenPresent={setIsTokenPresent}
+              serchBarFilter={serchBarFilter}
+              setSerchBarFilter={setSerchBarFilter}
+              checkboxOn={checkboxOn}
+              setCheckboxOn={setCheckboxOn}
+              priceMinFilter={priceMinFilter}
+              setPriceMinFilter={setPriceMinFilter}
+              priceMaxFilter={priceMaxFilter}
+              setPriceMaxFilter={setPriceMaxFilter}
+            />
+          }
+        /> */}
       </Routes>
     </Router>
   );

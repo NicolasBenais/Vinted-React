@@ -2,14 +2,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Header from "../components/Home-Header";
+import HomeHeader from "../components/Home-Header";
 import bannerImg from "../assets/img/banner_img.jpeg";
 
 export default function Home({
   setIsTokenPresent,
   isTokenPresent,
-  filters,
-  setFilters,
+  serchBarFilter,
+  setSerchBarFilter,
+  checkboxOn,
+  setCheckboxOn,
+  priceMinFilter,
+  setPriceMinFilter,
+  priceMaxFilter,
+  setPriceMaxFilter,
 }) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -17,10 +23,16 @@ export default function Home({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let filter = "";
+        let filter = `priceMin=${priceMinFilter}&${priceMaxFilter}`;
 
-        if (filters.title) {
-          filter = filter + "title=" + filters.title;
+        if (checkboxOn) {
+          filter = filter + "&sort=price-desc";
+        } else {
+          filter = filter + "&sort=price-asc";
+        }
+
+        if (serchBarFilter) {
+          filter = filter + "&title=" + serchBarFilter;
         }
 
         const response = await axios.get(
@@ -34,18 +46,24 @@ export default function Home({
       }
     };
     fetchData();
-  }, [filters]);
+  }, [serchBarFilter, checkboxOn, priceMinFilter, priceMaxFilter]);
 
   return isLoading ? (
     <div>Loading...</div>
   ) : (
     <div>
       {/* -------- HEADER -------- */}
-      <Header
+      <HomeHeader
         isTokenPresent={isTokenPresent}
         setIsTokenPresent={setIsTokenPresent}
-        filters={filters}
-        setFilters={setFilters}
+        serchBarFilter={serchBarFilter}
+        setSerchBarFilter={setSerchBarFilter}
+        checkboxOn={checkboxOn}
+        setCheckboxOn={setCheckboxOn}
+        priceMinFilter={priceMinFilter}
+        setPriceMinFilter={setPriceMinFilter}
+        priceMaxFilter={priceMaxFilter}
+        setPriceMaxFilter={setPriceMaxFilter}
       />
 
       {/* -------- BANNER -------- */}

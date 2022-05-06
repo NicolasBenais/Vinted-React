@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useState } from "react";
+import * as React from "react";
+// import { Range } from 'react-range';
 
-export default function Header({
+export default function HomeHeader({
   setIsTokenPresent,
   isTokenPresent,
-  filters,
-  setFilters,
+  setSerchBarFilter,
+  checkboxOn,
+  setCheckboxOn,
+  setPriceMinFilter,
+  setPriceMaxFilter,
 }) {
-  const [onSearchBar, setOnSearchBar] = useState({});
-  const [checkboxOn, setCheckboxOn] = useState(false);
-
   return (
     <header className="home_header">
       <Link to={"/"}>
@@ -28,19 +29,14 @@ export default function Header({
         </svg>
       </Link>
       <div className="search_container">
-        <i
-          className="fa-solid fa-magnifying-glass"
-          onClick={() => {
-            setFilters({ title: onSearchBar });
-          }}
-        ></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
 
         <input
           className="search_bar"
           type="text"
           placeholder="Recherche des articles"
           onChange={(event) => {
-            setOnSearchBar(event.target.value);
+            setSerchBarFilter(event.target.value);
           }}
         />
         <div>
@@ -48,11 +44,28 @@ export default function Header({
           <span className="chackbox_price_sort">
             <input
               type="checkbox"
-              onClick={() => {
+              checked={checkboxOn}
+              onChange={() => {
                 setCheckboxOn(!checkboxOn);
               }}
             />
           </span>
+          <span>Prix entre : </span>
+          <input
+            type="text"
+            placeholder="Prix min"
+            onChange={(event) => {
+              setPriceMinFilter(event.target.value);
+            }}
+          />
+
+          <input
+            type="text"
+            placeholder="Prix max"
+            onChange={(event) => {
+              setPriceMaxFilter(event.target.value);
+            }}
+          />
         </div>
       </div>
       <div>

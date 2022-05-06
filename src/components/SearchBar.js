@@ -1,4 +1,4 @@
-export default function SearchBar({ setOnSearchBar }) {
+export default function SearchBar({ setSerchBarFilter }) {
   <div className="search_container">
     <i className="fa-solid fa-magnifying-glass"></i>
     <input
@@ -6,7 +6,7 @@ export default function SearchBar({ setOnSearchBar }) {
       type="text"
       placeholder="Recherche des articles"
       onChange={(event) => {
-        setOnSearchBar(event.target.value);
+        setSerchBarFilter(event.target.value);
       }}
     />
   </div>;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import SearchBar from "./SearchBar";
 
-const Header = ({ setIsTokenPresent, isTokenPresent, setOnSearchBar }) => {
+const Header = ({ setIsTokenPresent, isTokenPresent, setFilters }) => {
   return (
     <header className="header">
       <Link to={"/"}>
@@ -19,7 +19,7 @@ const Header = ({ setIsTokenPresent, isTokenPresent, setOnSearchBar }) => {
           />
         </svg>
       </Link>
-      <SearchBar setOnSearchBar={setOnSearchBar} />
+      <SearchBar setOnSearchBar={setFilters} />
       <div>
         {isTokenPresent ? (
           <div>

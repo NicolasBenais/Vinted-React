@@ -10,7 +10,7 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 
 function App() {
-  const [onSearchBar, setOnSearchBar] = useState("");
+  const [filters, setFilters] = useState("");
   const [isTokenPresent, setIsTokenPresent] = useState(
     Cookies.get("TokenCookie") ? true : false
   );
@@ -24,8 +24,8 @@ function App() {
             <Home
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              onSearchBar={onSearchBar}
-              setOnSearchBar={setOnSearchBar}
+              filters={filters}
+              setFilters={setFilters}
             />
           }
         />
@@ -35,8 +35,8 @@ function App() {
             <SignUp
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              onSearchBar={onSearchBar}
-              setOnSearchBar={setOnSearchBar}
+              filters={filters}
+              setFilters={setFilters}
             />
           }
         />
@@ -46,8 +46,8 @@ function App() {
             <LogIn
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              onSearchBar={onSearchBar}
-              setOnSearchBar={setOnSearchBar}
+              filters={filters}
+              setFilters={setFilters}
             />
           }
         />
@@ -57,8 +57,8 @@ function App() {
             <Offer
               isTokenPresent={isTokenPresent}
               setIsTokenPresent={setIsTokenPresent}
-              onSearchBar={onSearchBar}
-              setOnSearchBar={setOnSearchBar}
+              filters={filters}
+              setFilters={setFilters}
             />
           }
         />

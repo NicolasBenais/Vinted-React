@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import SearchBar from "./SearchBar";
 
 export default function Header({
   setIsTokenPresent,
@@ -23,7 +22,18 @@ export default function Header({
           />
         </svg>
       </Link>
-      <SearchBar setOnSearchBar={setOnSearchBar} />
+      <div className="search_container">
+        <i className="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          className="search_bar"
+          type="text"
+          placeholder="Recherche des articles"
+          onChange={(event) => {
+            setOnSearchBar(event.target.value);
+          }}
+        />
+      </div>
       <div>
         {isTokenPresent ? (
           <div>

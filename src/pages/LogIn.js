@@ -64,7 +64,7 @@ export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
                 setIsTokenPresent(true);
                 navigate("/");
               } catch (error) {
-                if (error.response.data.message === "User not found") {
+                if (error.response.status === 401) {
                   setErrorMessage("Mauvais email et/ou mot de passe");
                 }
                 console.log(error);

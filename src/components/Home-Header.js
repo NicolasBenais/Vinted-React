@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 export default function Header({
   setIsTokenPresent,
   isTokenPresent,
-  setOnSearchBar,
+  setFilters,
 }) {
   return (
     <header className="home_header">
@@ -30,7 +30,7 @@ export default function Header({
           type="text"
           placeholder="Recherche des articles"
           onChange={(event) => {
-            setOnSearchBar(event.target.value);
+            setFilters(event.target.value);
           }}
         />
       </div>

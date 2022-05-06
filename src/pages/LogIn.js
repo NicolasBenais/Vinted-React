@@ -8,6 +8,8 @@ export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   return (
     <div>
       <Header
@@ -43,6 +45,7 @@ export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
             }}
             value={password}
           />
+          <p className="error_message">{errorMessage}</p>
           <button
             className="form_btn"
             type="submit"
@@ -50,6 +53,7 @@ export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
               try {
                 const response = await axios.post(
                   "https://lereacteur-vinted-api.herokuapp.com/user/login",
+                  // "https://vinted-bcknd.herokuapp.com/user/login",
                   {
                     email: email,
                     password: password,
@@ -60,6 +64,9 @@ export default function LogIn({ setIsTokenPresent, isTokenPresent }) {
                 setIsTokenPresent(true);
                 navigate("/");
               } catch (error) {
+                if (error.response.data.message === "User not found") {
+                  setErrorMessage("Mauvais email et/ou mot de passe");
+                }
                 console.log(error);
                 console.log(error.response.data);
               }

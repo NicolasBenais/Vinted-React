@@ -10,6 +10,7 @@ export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   return (
     <div>
@@ -46,7 +47,7 @@ export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
             }}
             value={email}
           />
-
+          <p className="error_message">{errorMessage}</p>
           <input
             className="form_input"
             type="password"
@@ -82,6 +83,7 @@ export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
               try {
                 const response = await axios.post(
                   "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+                  // "https://vinted-bcknd.herokuapp.com/user/signup",
                   {
                     email: email,
                     username: username,
@@ -96,6 +98,9 @@ export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
                 setIsTokenPresent(true);
                 navigate("/");
               } catch (error) {
+                if (error.response.status === 409) {
+                  setErrorMessage("Ce compte existe déjà.");
+                }
                 console.log(error);
                 console.log(error.response.data);
               }

@@ -6,7 +6,7 @@ const Header = ({ setIsTokenPresent, isTokenPresent }) => {
     <header className="header">
       <Link to={"/"}>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="https://www.w3.org/2000/svg"
           width="105"
           height="60"
           viewBox="0 0 83 48"

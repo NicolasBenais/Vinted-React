@@ -1,13 +1,13 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 // Pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
-import Cookies from "js-cookie";
 
 function App() {
   const [isTokenPresent, setIsTokenPresent] = useState(

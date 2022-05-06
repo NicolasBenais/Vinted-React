@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useState } from "react";
 
 export default function Header({
   setIsTokenPresent,
   isTokenPresent,
+  filters,
   setFilters,
 }) {
+  const [onSearchBar, setOnSearchBar] = useState({});
   return (
     <header className="home_header">
       <Link to={"/"}>
@@ -23,14 +26,20 @@ export default function Header({
         </svg>
       </Link>
       <div className="search_container">
-        <i className="fa-solid fa-magnifying-glass"></i>
+        <i
+          className="fa-solid fa-magnifying-glass"
+          onClick={() => {
+            setFilters({ title: onSearchBar });
+            console.log(filters);
+          }}
+        ></i>
 
         <input
           className="search_bar"
           type="text"
           placeholder="Recherche des articles"
           onChange={(event) => {
-            setFilters(event.target.value);
+            setOnSearchBar(event.target.value);
           }}
         />
       </div>

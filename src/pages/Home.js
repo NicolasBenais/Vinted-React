@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import Header from "../components/Home-Header";
 import bannerImg from "../assets/img/banner_img.jpeg";
 
-export default function Home({ setIsTokenPresent, isTokenPresent, filters }) {
+export default function Home({
+  setIsTokenPresent,
+  isTokenPresent,
+  filters,
+  setFilters,
+}) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,6 +38,8 @@ export default function Home({ setIsTokenPresent, isTokenPresent, filters }) {
       <Header
         isTokenPresent={isTokenPresent}
         setIsTokenPresent={setIsTokenPresent}
+        filters={filters}
+        setFilters={setFilters}
       />
 
       {/* -------- BANNER -------- */}

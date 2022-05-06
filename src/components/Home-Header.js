@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import SearchBar from "./SearchBar";
 
-const Header = ({ setIsTokenPresent, isTokenPresent }) => {
+export default function Header({
+  setIsTokenPresent,
+  isTokenPresent,
+  setOnSearchBar,
+}) {
   return (
     <header className="home_header">
       <Link to={"/"}>
@@ -18,14 +23,7 @@ const Header = ({ setIsTokenPresent, isTokenPresent }) => {
           />
         </svg>
       </Link>
-      <div className="search_container">
-        <i className="fa-solid fa-magnifying-glass"></i>
-        <input
-          className="search_bar"
-          type="text"
-          placeholder="Recherche des articles"
-        />
-      </div>
+      <SearchBar setOnSearchBar={setOnSearchBar} />
       <div>
         {isTokenPresent ? (
           <div>
@@ -53,6 +51,4 @@ const Header = ({ setIsTokenPresent, isTokenPresent }) => {
       <button className="sold_btn">Vends tes articles</button>
     </header>
   );
-};
-
-export default Header;
+}

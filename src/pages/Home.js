@@ -17,8 +17,14 @@ export default function Home({
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let filter = "";
+
+        if (filters.title) {
+          filter = filter + "title=" + filters.title;
+        }
+
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?${filter}`
         );
 
         setData(response.data);
@@ -28,7 +34,7 @@ export default function Home({
       }
     };
     fetchData();
-  }, []);
+  }, [filters]);
 
   return isLoading ? (
     <div>Loading...</div>

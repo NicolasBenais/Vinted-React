@@ -9,6 +9,8 @@ export default function Header({
   setFilters,
 }) {
   const [onSearchBar, setOnSearchBar] = useState({});
+  const [checkboxOn, setCheckboxOn] = useState(false);
+
   return (
     <header className="home_header">
       <Link to={"/"}>
@@ -30,7 +32,6 @@ export default function Header({
           className="fa-solid fa-magnifying-glass"
           onClick={() => {
             setFilters({ title: onSearchBar });
-            console.log(filters);
           }}
         ></i>
 
@@ -42,6 +43,17 @@ export default function Header({
             setOnSearchBar(event.target.value);
           }}
         />
+        <div>
+          <span>Trier par prix : </span>
+          <span className="chackbox_price_sort">
+            <input
+              type="checkbox"
+              onClick={() => {
+                setCheckboxOn(!checkboxOn);
+              }}
+            />
+          </span>
+        </div>
       </div>
       <div>
         {isTokenPresent ? (

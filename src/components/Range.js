@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Range } from "react-range";
+// import getTrackBackground from "react-range"
 
 class SuperSimple extends React.Component {
   state = { values: [50] };
@@ -13,6 +14,7 @@ class SuperSimple extends React.Component {
         onChange={(values) => this.setState({ values })}
         renderTrack={({ props, children }) => (
           <div
+            className="barre"
             {...props}
             style={{
               ...props.style,
@@ -26,6 +28,7 @@ class SuperSimple extends React.Component {
         )}
         renderThumb={({ props }) => (
           <div
+            className="carré"
             {...props}
             style={{
               ...props.style,

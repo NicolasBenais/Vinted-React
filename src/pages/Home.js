@@ -2,20 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import HomeHeader from "../components/Home-Header";
 import bannerImg from "../assets/img/banner_img.jpeg";
 
 export default function Home({
-  setIsTokenPresent,
-  isTokenPresent,
-  serchBarFilter,
-  setSerchBarFilter,
+  searchBarFilter,
   checkboxOn,
-  setCheckboxOn,
   priceMinFilter,
-  setPriceMinFilter,
   priceMaxFilter,
-  setPriceMaxFilter,
 }) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -31,8 +24,8 @@ export default function Home({
           filter = filter + "&sort=price-asc";
         }
 
-        if (serchBarFilter) {
-          filter = filter + "&title=" + serchBarFilter;
+        if (searchBarFilter) {
+          filter = filter + "&title=" + searchBarFilter;
         }
 
         const response = await axios.get(
@@ -46,26 +39,12 @@ export default function Home({
       }
     };
     fetchData();
-  }, [serchBarFilter, checkboxOn, priceMinFilter, priceMaxFilter]);
+  }, [searchBarFilter, checkboxOn, priceMinFilter, priceMaxFilter]);
 
   return isLoading ? (
     <div>Loading...</div>
   ) : (
     <div>
-      {/* -------- HEADER -------- */}
-      <HomeHeader
-        isTokenPresent={isTokenPresent}
-        setIsTokenPresent={setIsTokenPresent}
-        serchBarFilter={serchBarFilter}
-        setSerchBarFilter={setSerchBarFilter}
-        checkboxOn={checkboxOn}
-        setCheckboxOn={setCheckboxOn}
-        priceMinFilter={priceMinFilter}
-        setPriceMinFilter={setPriceMinFilter}
-        priceMaxFilter={priceMaxFilter}
-        setPriceMaxFilter={setPriceMaxFilter}
-      />
-
       {/* -------- BANNER -------- */}
 
       <div className="banner">

@@ -2,9 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Header from "../components/Header";
-
-const Product = ({ setIsTokenPresent, isTokenPresent }) => {
+export default function Offer() {
   const { id } = useParams();
 
   const [data, setData] = useState();
@@ -29,11 +27,6 @@ const Product = ({ setIsTokenPresent, isTokenPresent }) => {
     <div>Loading...</div>
   ) : (
     <div>
-      <Header
-        className="header_in_offer"
-        isTokenPresent={isTokenPresent}
-        setIsTokenPresent={setIsTokenPresent}
-      />
       <div className="offer_body">
         <div className="offer_container">
           <div>
@@ -82,6 +75,4 @@ const Product = ({ setIsTokenPresent, isTokenPresent }) => {
       </div>
     </div>
   );
-};
-
-export default Product;
+}

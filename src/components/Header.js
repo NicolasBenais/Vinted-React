@@ -1,13 +1,28 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import SearchBar from "./SearchBar";
+import { useLocation } from "react-router-dom";
 
-const Header = ({ setIsTokenPresent, isTokenPresent, setSerchBarFilter }) => {
+import SearchBar from "./SearchBar";
+import CustomRange from "./Range";
+
+export default function Header({
+  setIsTokenPresent,
+  isTokenPresent,
+  setSearchBarFilter,
+  checkboxOn,
+  setCheckboxOn,
+  priceRange,
+  setPriceRange,
+}) {
+  const { pathname } = useLocation();
+  const [tmpPriceRange, setTmpPriceRange] = useState(priceRange);
+
   return (
-    <header className="header">
+    <header className="home_header">
       <Link to={"/"}>
         <svg
-          xmlns="https://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org/2000/svg"
           width="105"
           height="60"
           viewBox="0 0 83 48"
@@ -19,7 +34,37 @@ const Header = ({ setIsTokenPresent, isTokenPresent, setSerchBarFilter }) => {
           />
         </svg>
       </Link>
-      <SearchBar setSerchBarFilter={setSerchBarFilter} />
+      <div className="search_container">
+        <SearchBar setSearchBarFilter={setSearchBarFilter} />
+        {pathname === "/" && (
+          <div className="sort_container">
+            <span className="sort_text">Trier par prix : </span>
+
+            <span className="checkbox_price_sort">
+              <input
+                id="sort-price"
+                type="checkbox"
+                checked={checkboxOn}
+                onChange={() => {
+                  setCheckboxOn(!checkboxOn);
+                }}
+              />
+              <label className="wrapper" htmlFor="sort-price">
+                <div className="knob">
+                  {checkboxOn ? <span>⇣</span> : <span>⇡</span>}
+                </div>
+              </label>
+            </span>
+
+            <span className="sort_text">Prix entre : </span>
+            <CustomRange
+              values={tmpPriceRange}
+              onChange={setTmpPriceRange}
+              onFinalChange={setPriceRange}
+            />
+          </div>
+        )}
+      </div>
       <div>
         {isTokenPresent ? (
           <div>
@@ -47,6 +92,4 @@ const Header = ({ setIsTokenPresent, isTokenPresent, setSerchBarFilter }) => {
       <button className="sold_btn">Vends tes articles</button>
     </header>
   );
-};
-
-export default Header;
+}

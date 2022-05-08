@@ -1,46 +1,70 @@
-import * as React from "react";
 import { Range } from "react-range";
-// import getTrackBackground from "react-range"
 
-class SuperSimple extends React.Component {
-  state = { values: [50] };
-  render() {
-    return (
-      <Range
-        step={0.1}
-        min={0}
-        max={100}
-        values={this.state.values}
-        onChange={(values) => this.setState({ values })}
-        renderTrack={({ props, children }) => (
+export default function CustomRange({
+  step,
+  values,
+  min,
+  max,
+  onChange,
+  onFinalChange,
+}) {
+  return (
+    <Range
+      step={step || 5}
+      min={min || 0}
+      max={max || 500}
+      values={values}
+      onChange={onChange}
+      onFinalChange={onFinalChange || (() => {})}
+      renderTrack={({ props, children }) => (
+        <div
+          {...props}
+          style={{
+            ...props.style,
+            height: "6px",
+            width: "50%",
+            backgroundColor: "#ccc",
+            borderRadius: "4px",
+          }}
+        >
+          {children}
+        </div>
+      )}
+      renderThumb={({ index, props }) => (
+        <div
+          {...props}
+          style={{
+            ...props.style,
+            height: "15px",
+            width: "15px",
+            borderRadius: "99px",
+            backgroundColor: "#2DB0BA",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "white 1px solid",
+          }}
+        >
           <div
-            className="barre"
-            {...props}
             style={{
-              ...props.style,
-              height: "6px",
-              width: "100%",
-              backgroundColor: "#ccc",
+              position: "absolute",
+              top: "-28px",
+              backgroundColor: "#2DB0BA",
+              color: "white",
+              fontSize: "12px",
+              lineHeight: "10px",
+              padding: "4px",
+              borderRadius: "4px",
+              width: "auto",
             }}
           >
-            {children}
+            <div>
+              <span>{values[index]}</span>
+              <span> €</span>
+            </div>
           </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            className="carré"
-            {...props}
-            style={{
-              ...props.style,
-              height: "42px",
-              width: "42px",
-              backgroundColor: "#999",
-            }}
-          />
-        )}
-      />
-    );
-  }
+        </div>
+      )}
+    />
+  );
 }
-
-export default SuperSimple;

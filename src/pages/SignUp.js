@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import Header from "../components/Header";
+
 import { Link, useNavigate } from "react-router-dom";
 
-export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
+export default function SignUp({ setIsTokenPresent }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -14,10 +14,6 @@ export default function SignUp({ setIsTokenPresent, isTokenPresent }) {
 
   return (
     <div>
-      <Header
-        isTokenPresent={isTokenPresent}
-        setIsTokenPresent={setIsTokenPresent}
-      />
       <div className="sign-up">
         <h2>S'inscrire</h2>
         <form

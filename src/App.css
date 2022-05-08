@@ -29,6 +29,10 @@ button:active {
   align-items: center;
 }
 
+.search_bar_container {
+  position: relative;
+}
+
 .search_bar {
   width: 590px;
   height: 37px;
@@ -85,6 +89,7 @@ button:active {
 }
 
 /* Home Header */
+
 .home_header {
   width: 1280px;
   height: 120px;
@@ -94,13 +99,27 @@ button:active {
   justify-content: space-around;
 }
 
+.sort_container {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 10px;
+  margin-top: 25px;
+  width: 100%;
+}
+
 .checkbox_price_sort {
   margin-right: 25px;
 }
 
-/* .checkbox_price_sort_input {
+#sort-price {
   display: none;
-} */
+}
+
+.sort_text {
+  margin-right: 10px;
+  color: #000000;
+}
 
 .wrapper {
   background-color: #2cb1ba;
@@ -126,6 +145,14 @@ button:active {
   left: 0;
   transition: left 0.1s ease-in-out 0s;
   font-weight: 700;
+}
+
+#sort-price:checked + .wrapper .knob {
+  left: 24px;
+}
+
+.range_sort_value {
+  display: flex;
 }
 
 /* Offer page's header */

@@ -43,6 +43,7 @@ export default function CustomRange({
             justifyContent: "center",
             alignItems: "center",
             border: "white 1px solid",
+            outline: "none",
           }}
         >
           <div
@@ -58,8 +59,8 @@ export default function CustomRange({
               width: "auto",
             }}
           >
-            <div>
-              <span>{values[index]}</span>
+            <div style={{ display: "flex" }}>
+              <span>{values[index]} </span>
               <span> €</span>
             </div>
           </div>

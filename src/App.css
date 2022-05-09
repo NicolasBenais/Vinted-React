@@ -84,7 +84,8 @@ button:active {
 
 .sold_btn,
 .form_btn,
-.banner_btn {
+.banner_btn,
+.submit_form_btn > button {
   background-color: #2cb1ba;
   color: #fff;
 }
@@ -151,12 +152,6 @@ button:active {
 #sort-price:checked + .wrapper .knob {
   left: 24px;
 }
-
-.range_sort_value {
-  display: f;
-}
-
-/* Offer page's header */
 
 /* -------- BANNER -------- */
 
@@ -446,13 +441,106 @@ li {
 
 /* -------- PUBLISH -------- */
 
+.publish_main {
+  background-color: #ebedee;
+}
+.publish_container {
+  width: 1280px;
+  margin: 0 auto;
+}
 .publish_form {
   display: flex;
   flex-direction: column;
-  width: 500px;
-  margin: 100px auto;
 }
 
-.publish_form > span {
-  margin-top: 10px;
+.publish_container > h2 {
+  font-size: 24px;
+  line-height: 20px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.picture_import,
+.text_input_selection {
+  background-color: #fff;
+  margin: 20px 0;
+  box-shadow: 0 0 2px grey;
+}
+
+.picture_import {
+  padding: 24px;
+}
+
+.pictures_preview {
+  border: 1px dashed #ebedee;
+  border-radius: 3px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_input {
+  border-bottom: 1px solid #ebedee;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.text_input > input,
+.text_input > textarea,
+.price_input {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  font-size: 16px;
+  outline: none;
+}
+
+.text_input > textarea {
+  resize: none;
+  font-family: "Maison Neue", sans-serif;
+}
+
+.checkbox_and_price {
+  width: 50%;
+}
+
+.price_input {
+  margin-bottom: 40px;
+}
+
+.checkbox_interest > input {
+  display: none;
+}
+
+.checkbox_interest_label,
+.checkbox_interest_label_checked {
+  border-radius: 3px;
+  border: 1px solid #000;
+  padding: 2px 11px;
+  margin-right: 15px;
+}
+
+.checkbox_interest_label_checked {
+  background-color: #2cb1ba;
+  border: none;
+  padding: 3px 6px;
+}
+.fa-check {
+  color: white;
+}
+
+.submit_form_btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit_form_btn > button {
+  margin: 50px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 14px;
 }

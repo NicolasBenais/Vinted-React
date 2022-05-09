@@ -57,111 +57,145 @@ export default function Publish() {
   };
 
   return (
-    <div>
-      <form className="publish_form" onSubmit={handleSendOffer}>
-        <input
-          type="file"
-          onChange={(event) => {
-            setPictures(event.target.files[0]);
-          }}
-        />
-        <span>
-          Titre
-          <input
-            type="text"
-            placeholder="ex: Sweat Octobre rose"
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          Décris ton article
-          <input
-            type="text"
-            placeholder=" ex: Porté quelques fois"
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          Marque
-          <input
-            type="text"
-            placeholder="ex: Octobre"
-            onChange={(event) => {
-              setBrand(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          Taille
-          <input
-            type="text"
-            placeholder="ex: L / 40 / 12"
-            onChange={(event) => {
-              setSize(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          Couleur
-          <input
-            type="text"
-            placeholder="ex: Rose et blanc"
-            onChange={(event) => {
-              setColor(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          État
-          <input
-            type="text"
-            placeholder="ex: Neuf avec étiquette"
-            onChange={(event) => {
-              setCondition(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          Lieu
-          <input
-            type="text"
-            placeholder="ex: Paris"
-            onChange={(event) => {
-              setCity(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          Prix
-          <input
-            type="price"
-            placeholder="0,00 €"
-            onChange={(event) => {
-              setPrice(event.target.value);
-            }}
-          />
-        </span>
-        <span>
-          <input
-            type="checkbox"
-            onChange={() => {
-              setExchangeInterest(!exchangeInterest);
-            }}
-          />
-          <span>Je suis interessé(e) par les échanges </span>
-        </span>
+    <div className="publish_main">
+      <div className="publish_container">
+        <h2>Vends ton article</h2>
+        <form className="publish_form" onSubmit={handleSendOffer}>
+          <div className="picture_import">
+            <div className="pictures_preview">
+              <input
+                type="file"
+                onChange={(event) => {
+                  setPictures(event.target.files[0]);
+                }}
+              />
+            </div>
+          </div>
+          <div className="text_input_selection">
+            <div className="text_input">
+              <h4>Titre</h4>
+              <input
+                type="text"
+                placeholder="ex: Sweat Octobre rose"
+                onChange={(event) => {
+                  setTitle(event.target.value);
+                }}
+              />
+            </div>
+            <div className="text_input">
+              <h4> Décris ton article</h4>
+              <textarea
+                name="description"
+                id="description"
+                rows="5"
+                placeholder="ex: Porté quelques fois"
+                onChange={(event) => {
+                  setDescription(event.target.value);
+                }}
+              ></textarea>
+            </div>
+          </div>
+          <div className="text_input_selection">
+            <div className="text_input">
+              <h4>Marque</h4>
+              <input
+                type="text"
+                placeholder="ex: Octobre"
+                onChange={(event) => {
+                  setBrand(event.target.value);
+                }}
+              />
+            </div>
+            <div className="text_input">
+              <h4>Taille</h4>
+              <input
+                type="text"
+                placeholder="ex: L / 40 / 12"
+                onChange={(event) => {
+                  setSize(event.target.value);
+                }}
+              />
+            </div>
+            <div className="text_input">
+              <h4>Couleur</h4>
+              <input
+                type="text"
+                placeholder="ex: Rose et blanc"
+                onChange={(event) => {
+                  setColor(event.target.value);
+                }}
+              />
+            </div>
+            <div className="text_input">
+              <h4>État</h4>
+              <input
+                type="text"
+                placeholder="ex: Neuf avec étiquette"
+                onChange={(event) => {
+                  setCondition(event.target.value);
+                }}
+              />
+            </div>
+            <div className="text_input">
+              <h4>Lieu</h4>
+              <input
+                type="text"
+                placeholder="ex: Paris"
+                onChange={(event) => {
+                  setCity(event.target.value);
+                }}
+              />
+            </div>
+          </div>
+          <div className="text_input_selection">
+            <div className="text_input">
+              <h4>Prix</h4>
+              <div className="checkbox_and_price">
+                <input
+                  className="price_input"
+                  type="price"
+                  placeholder="0,00 €"
+                  onChange={(event) => {
+                    setPrice(event.target.value);
+                  }}
+                />
+                <div className="checkbox_interest">
+                  {exchangeInterest ? (
+                    <label
+                      className="checkbox_interest_label_checked"
+                      htmlFor="checkbox_exchange_interest"
+                    >
+                      <i className="fa-solid fa-check fa-sm"></i>
+                    </label>
+                  ) : (
+                    <label
+                      className="checkbox_interest_label"
+                      htmlFor="checkbox_exchange_interest"
+                    ></label>
+                  )}
 
-        <input type="submit" />
-      </form>
-      {publishment === true ? (
-        <div>En cours de publication</div>
-      ) : (
-        data && navigate(`/offer/${data._id}`)
-      )}
+                  <input
+                    id="checkbox_exchange_interest"
+                    type="checkbox"
+                    onChange={() => {
+                      setExchangeInterest(!exchangeInterest);
+                    }}
+                  />
+                  <span>Je suis interessé(e) par les échanges </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="submit_form_btn">
+            <button type="submit"> Ajouter</button>
+          </div>
+        </form>
+        {publishment === true ? (
+          <div>En cours de publication</div>
+        ) : (
+          data && navigate(`/offer/${data._id}`)
+        )}
+      </div>
     </div>
   );
 }

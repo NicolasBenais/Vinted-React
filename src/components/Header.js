@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
 import CustomRange from "./Range";
@@ -17,6 +17,7 @@ export default function Header({
   setPriceRange,
 }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [tmpPriceRange, setTmpPriceRange] = useState(priceRange);
 
   return (
@@ -74,6 +75,10 @@ export default function Header({
               onClick={() => {
                 Cookies.remove("TokenCookie");
                 setIsTokenPresent(false);
+                // eslint-disable-next-line no-lone-blocks
+                {
+                  pathname === "/publish" && navigate("/login");
+                }
               }}
             >
               Se déconnecter

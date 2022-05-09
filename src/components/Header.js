@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
 import CustomRange from "./Range";
+import Button from "./Button";
 
 export default function Header({
   setIsTokenPresent,
@@ -68,28 +69,29 @@ export default function Header({
       <div>
         {isTokenPresent ? (
           <div>
-            <button
-              className="log-out_btn"
+            <Button
+              className={"log-out_btn"}
+              value={"Se déconnecter"}
               onClick={() => {
                 Cookies.remove("TokenCookie");
                 setIsTokenPresent(false);
               }}
-            >
-              Se déconnecter
-            </button>
+            />
           </div>
         ) : (
           <div>
             <Link to={"/signup"}>
-              <button className="sign_in_btn">S'inscrire</button>
+              <Button className={"sign_in_btn"} value={"S'inscrire"} />
             </Link>
             <Link to={"/login"}>
-              <button className="log_in_btn">Se connecter</button>
+              <Button className={"log_in_btn"} value={"Se connecter"} />
             </Link>
           </div>
         )}
       </div>
-      <button className="sold_btn">Vends tes articles</button>
+      <Link to={isTokenPresent ? "/publish" : "/signup"}>
+        <Button className={"sold_btn"} value={"Vends tes articles"} />
+      </Link>
     </header>
   );
 }

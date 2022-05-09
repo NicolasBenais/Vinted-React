@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Button from "../components/Button";
 
 export default function Offer() {
   const { id } = useParams();
@@ -69,7 +70,7 @@ export default function Offer() {
                 </div>
               </div>
             </div>
-            <button className="by_btn">Acheter</button>
+            <Button className={"by_btn"} value={"Acheter"} />
           </div>
         </div>
       </div>

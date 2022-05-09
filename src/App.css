@@ -31,6 +31,7 @@ button:active {
 
 .search_bar_container {
   position: relative;
+  margin-top: 10px;
 }
 
 .search_bar {
@@ -92,7 +93,6 @@ button:active {
 
 .home_header {
   width: 1280px;
-  height: 120px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -157,15 +157,6 @@ button:active {
 }
 
 /* Offer page's header */
-
-header {
-  width: 1280px;
-  /* height: 65px; */
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 
 /* -------- BANNER -------- */
 
@@ -451,4 +442,17 @@ li {
   text-decoration: none;
   margin-top: 20px;
   text-align: center;
+}
+
+/* -------- PUBLISH -------- */
+
+.publish_form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 100px auto;
+}
+
+.publish_form > span {
+  margin-top: 10px;
 }

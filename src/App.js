@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Publish from "./pages/Publish";
+
+// Components
 import Header from "./components/Header";
 
 function App() {
@@ -38,6 +41,7 @@ function App() {
               checkboxOn={checkboxOn}
               priceMinFilter={priceRange[0]}
               priceMaxFilter={priceRange[1]}
+              isTokenPresent={isTokenPresent}
             />
           }
         />
@@ -50,6 +54,8 @@ function App() {
           element={<LogIn setIsTokenPresent={setIsTokenPresent} />}
         />
         <Route path="/offer/:id" element={<Offer />} />
+
+        <Route path="/publish" element={<Publish />} />
       </Routes>
     </Router>
   );

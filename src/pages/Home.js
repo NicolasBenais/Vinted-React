@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import bannerImg from "../assets/img/banner_img.jpeg";
+import Button from "../components/Button";
 
 export default function Home({
   searchBarFilter,
   checkboxOn,
   priceMinFilter,
   priceMaxFilter,
+  isTokenPresent,
 }) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -59,8 +61,9 @@ export default function Home({
         </svg>
         <div className="banner_text">
           <p>Prêts à faire du tri dans vos placards ?</p>
-
-          <button className="banner_btn">Commencez à vendre</button>
+          <Link to={isTokenPresent ? "/publish" : "/signup"}>
+            <Button className={"banner_btn"} value={"Commencez à vendre"} />
+          </Link>
         </div>
       </div>
 

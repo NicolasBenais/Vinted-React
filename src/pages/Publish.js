@@ -194,15 +194,16 @@ export default function Publish() {
               </div>
             </div>
           </div>
+          {publishment === false && <div className="publishment"></div>}
+          {publishment === true ? (
+            <div className="publishment">En cours de publication</div>
+          ) : (
+            data && navigate(`/offer/${data._id}`)
+          )}
           <div className="submit_form_btn">
             <button type="submit"> Ajouter</button>
           </div>
         </form>
-        {publishment === true ? (
-          <div>En cours de publication</div>
-        ) : (
-          data && navigate(`/offer/${data._id}`)
-        )}
       </div>
     </div>
   );

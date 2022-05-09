@@ -67,7 +67,8 @@ button:active {
 }
 
 .sign_in_btn,
-.log_in_btn {
+.log_in_btn,
+.add_picture_btn {
   background-color: #fff;
   color: #2cb1ba;
 }
@@ -543,4 +544,17 @@ li {
   border-radius: 4px;
   font-size: 16px;
   line-height: 14px;
+}
+
+.add_picture_input {
+  display: none;
+}
+
+.add_picture_btn {
+  border: solid 1px #2cb1ba;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 14px;
+  cursor: pointer;
 }

@@ -63,7 +63,15 @@ export default function Publish() {
         <form className="publish_form" onSubmit={handleSendOffer}>
           <div className="picture_import">
             <div className="pictures_preview">
+              <label className="add_picture_btn" htmlFor="add_picture_input">
+                <span>
+                  <i class="fa-solid fa-plus"></i>
+                </span>
+                <span> Ajoute une photo</span>
+              </label>
               <input
+                id="add_picture_input"
+                className="add_picture_input"
                 type="file"
                 onChange={(event) => {
                   setPictures(event.target.files[0]);

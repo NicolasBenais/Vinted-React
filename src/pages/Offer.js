@@ -73,7 +73,7 @@ export default function Offer() {
                 </div>
               </div>
             </div>
-            <Button className={"by_btn"} value={"Acheter"} />
+            <Button className={"buy_btn"} value={"Acheter"} />
           </div>
         </div>
       </div>

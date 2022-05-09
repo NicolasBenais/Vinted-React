@@ -69,14 +69,15 @@ export default function Header({
       <div>
         {isTokenPresent ? (
           <div>
-            <Button
-              className={"log-out_btn"}
-              value={"Se déconnecter"}
+            <button
+              className="log-out_btn"
               onClick={() => {
                 Cookies.remove("TokenCookie");
                 setIsTokenPresent(false);
               }}
-            />
+            >
+              Se déconnecter
+            </button>
           </div>
         ) : (
           <div>

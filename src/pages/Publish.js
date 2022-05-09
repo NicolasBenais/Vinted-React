@@ -1,8 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function Publish() {
+  const navigate = useNavigate();
+
   const [publishment, setPublishment] = useState(false);
 
   const [pictures, setPictures] = useState(null);
@@ -39,7 +42,7 @@ export default function Publish() {
         formData,
         {
           headers: {
-            Autorization: "Bearer" + Cookies.get("TokenCookie"),
+            Authorization: "Bearer " + Cookies.get("TokenCookie"),
             "Content-Type": "multipart/form-data",
           },
         }
@@ -48,6 +51,7 @@ export default function Publish() {
       setPublishment(false);
       console.log(data);
     } catch (error) {
+      console.log(error);
       console.log(error.message);
     }
   };
@@ -152,18 +156,11 @@ export default function Publish() {
         </span>
 
         <input type="submit" />
-        <button
-          onClick={() => {
-            console.log(Cookies.get("TokenCookie"));
-          }}
-        >
-          Console.log
-        </button>
       </form>
       {publishment === true ? (
         <div>En cours de publication</div>
       ) : (
-        data && <img src={data.secure_url} alt="" />
+        data && navigate(`/offer/${data._id}`)
       )}
     </div>
   );

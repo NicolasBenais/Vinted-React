@@ -60,11 +60,14 @@ export default function Offer() {
               <p>{data.product_name}</p>
               <p>{data.product_description}</p>
               <div className="owner_in_offer">
-                <img
-                  className="avatar_in_offer"
-                  src={data.owner.account.avatar.secure_url}
-                  alt="Owner avatar"
-                />
+                {data.owner.account.avatar && (
+                  <img
+                    className="avatar_in_offer"
+                    src={data.owner.account.avatar.secure_url}
+                    alt="Owner avatar"
+                  />
+                )}
+
                 <div className="username_in_offer">
                   {data.owner.account.username}
                 </div>

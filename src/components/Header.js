@@ -8,8 +8,8 @@ import CustomRange from "./Range";
 import Button from "./Button";
 
 export default function Header({
-  setIsTokenPresent,
   isTokenPresent,
+  setIsTokenPresent,
   setSearchBarFilter,
   checkboxOn,
   setCheckboxOn,

@@ -24,8 +24,8 @@ function App() {
   return (
     <Router>
       <Header
-        setIsTokenPresent={setIsTokenPresent}
         isTokenPresent={isTokenPresent}
+        setIsTokenPresent={setIsTokenPresent}
         setSearchBarFilter={setSearchBarFilter}
         checkboxOn={checkboxOn}
         setCheckboxOn={setCheckboxOn}

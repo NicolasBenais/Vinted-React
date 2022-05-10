@@ -79,6 +79,10 @@ export default function Header({
                 {
                   pathname === "/publish" && navigate("/login");
                 }
+                // eslint-disable-next-line no-lone-blocks
+                {
+                  pathname === "/payment" && navigate("/");
+                }
               }}
             >
               Se déconnecter

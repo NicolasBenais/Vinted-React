@@ -54,7 +54,10 @@ function App() {
           path="/login"
           element={<LogIn setIsTokenPresent={setIsTokenPresent} />}
         />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route
+          path="/offer/:id"
+          element={<Offer isTokenPresent={isTokenPresent} />}
+        />
 
         <Route path="/publish" element={<Publish />} />
 

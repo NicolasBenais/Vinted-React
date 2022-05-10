@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Button from "../components/Button";
 
-export default function Offer() {
+export default function Offer({ isTokenPresent }) {
   const { id } = useParams();
 
   const [data, setData] = useState();
@@ -13,8 +13,8 @@ export default function Offer() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          // `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-          `https://vinted-bcknd.herokuapp.com/offers/${id}`
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          // `https://vinted-bcknd.herokuapp.com/offers/${id}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -75,7 +75,7 @@ export default function Offer() {
               </div>
             </div>
             <Link
-              to="/payment"
+              to={isTokenPresent ? "/payment" : "/signup"}
               state={{ title: data.product_name, price: data.product_price }}
             >
               <Button className={"buy_btn"} value={"Acheter"} />

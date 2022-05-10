@@ -590,3 +590,64 @@ li {
 .payment_text_bold {
   font-size: 700;
 }
+
+.payment_resume {
+  background-color: #fff;
+}
+
+.payment_resume_title {
+  font-size: 14px;
+  line-height: 18px;
+  color: #999;
+  padding: 24px 24px 8px;
+}
+
+.payment_resume_list,
+.payment_total,
+.payment_text {
+  padding: 24px;
+}
+
+.payment_resume_list > ul > li {
+  font-size: 16px;
+  line-height: 22px;
+  color: #666;
+  padding: 4px 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ebedee;
+}
+.payment_total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+.payment_text {
+  text-align: justify;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.payment_text_bold {
+  font-weight: 600;
+}
+
+.StripeElement {
+  margin: 10px 0 20px;
+  padding: 10px 14px;
+  background-color: #fff;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+.payment_succeded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,7 +1,9 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useState } from "react";
 
 export default function CheckoutForm({ title, price }) {
+  const [succededPayment, setSuccededPayment] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -22,20 +24,26 @@ export default function CheckoutForm({ title, price }) {
       title,
       price,
     });
+    setSuccededPayment(true);
     console.log(response.data);
 
     if (response.data.status === "succeded") {
       console.log("Payment succeded");
     }
   };
-  console.log(title, price);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <button className="payment_btn" type="submit">
-        Pay
-      </button>
-    </form>
+    <div>
+      {succededPayment ? (
+        <div className="payment_btn payment_succeded">Paiement effectué !</div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <CardElement />
+          <button className="payment_btn" type="submit">
+            Pay
+          </button>
+        </form>
+      )}
+    </div>
   );
 }

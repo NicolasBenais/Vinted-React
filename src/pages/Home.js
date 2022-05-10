@@ -31,7 +31,8 @@ export default function Home({
         }
 
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?${filter}`
+          // `https://lereacteur-vinted-api.herokuapp.com/offers?${filter}`
+          `https://vinted-bcknd.herokuapp.com/offers?${filter}`
         );
 
         setData(response.data);

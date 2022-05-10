@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Button from "../components/Button";
 
 export default function Offer() {
@@ -13,7 +13,8 @@ export default function Offer() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          // `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          `https://vinted-bcknd.herokuapp.com/offers/${id}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -73,7 +74,12 @@ export default function Offer() {
                 </div>
               </div>
             </div>
-            <Button className={"buy_btn"} value={"Acheter"} />
+            <Link
+              to="/payment"
+              state={{ title: data.product_name, price: data.product_price }}
+            >
+              <Button className={"buy_btn"} value={"Acheter"} />
+            </Link>
           </div>
         </div>
       </div>

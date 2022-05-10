@@ -442,7 +442,8 @@ li {
 
 /* -------- PUBLISH -------- */
 
-.publish_main {
+.publish_main,
+.payment_main {
   background-color: #ebedee;
 }
 .publish_container {
@@ -563,4 +564,29 @@ li {
   display: flex;
   justify-content: center;
   height: 20px;
+}
+
+/* -------- PAYMENT -------- */
+
+.payment_container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 36px 20px;
+}
+
+.payment_btn {
+  margin-top: 8px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 22px;
+  height: 44px;
+  padding: 0 14px;
+  color: #fff;
+  border: 1px solid #00c06d;
+  border-radius: 4px;
+  background-color: #00c06d;
+}
+
+.payment_text_bold {
+  font-size: 700;
 }

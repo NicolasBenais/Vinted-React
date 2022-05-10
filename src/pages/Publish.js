@@ -38,7 +38,8 @@ export default function Publish() {
 
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        // "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        "https://vinted-bcknd.herokuapp.com/offer/publish",
         formData,
         {
           headers: {

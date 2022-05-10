@@ -9,6 +9,7 @@ import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 // Components
 import Header from "./components/Header";
@@ -56,6 +57,8 @@ function App() {
         <Route path="/offer/:id" element={<Offer />} />
 
         <Route path="/publish" element={<Publish />} />
+
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   );

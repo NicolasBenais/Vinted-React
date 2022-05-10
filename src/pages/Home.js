@@ -27,12 +27,13 @@ export default function Home({
         }
 
         if (searchBarFilter) {
-          filter = filter + "&title=" + searchBarFilter;
+          filter = filter + "&product_name=" + searchBarFilter;
         }
 
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?${filter}`
           // `https://vinted-bcknd.herokuapp.com/offers?${filter}`
+          // `http://localhost:4000/offers?${filter}`
         );
 
         setData(response.data);

@@ -27,7 +27,7 @@ export default function Home({
         }
 
         if (searchBarFilter) {
-          filter = filter + "&product_name=" + searchBarFilter;
+          filter = filter + "&title=" + searchBarFilter;
         }
 
         const response = await axios.get(

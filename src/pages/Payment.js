@@ -49,16 +49,13 @@ export default function Payment() {
             Il ne vous reste plus qu'une étape pour vous offrir
             <span className="payment_text_bold"> {title}</span>. Vous allez
             payer
-            <span className="payment_text_bold">
-              {" "}
-              {totalPrice.toFixed(2)}
-            </span>{" "}
-            € (frais de protection et frais de port inclus).
+            <span className="payment_text_bold"> {totalPrice.toFixed(2)}</span>€
+            (frais de protection et frais de port inclus).
           </div>
         </div>
 
         <Elements stripe={stripePromise}>
-          <CheckoutForm title={title} price={price} />
+          <CheckoutForm title={title} totalPrice={totalPrice} />
         </Elements>
       </div>
     </div>

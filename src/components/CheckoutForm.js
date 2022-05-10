@@ -2,7 +2,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState } from "react";
 
-export default function CheckoutForm({ title, price }) {
+export default function CheckoutForm({ title, totalPrice }) {
   const [succededPayment, setSuccededPayment] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -19,11 +19,14 @@ export default function CheckoutForm({ title, price }) {
     console.log(stripeResponse);
 
     // étape 3
-    const response = await axios.post("http://localhost:4000/payment", {
-      stripeToken: stripeResponse.token.id,
-      title,
-      price,
-    });
+    const response = await axios.post(
+      "https://vinted-bcknd.herokuapp.com/payment",
+      {
+        stripeToken: stripeResponse.token.id,
+        title,
+        totalPrice,
+      }
+    );
     setSuccededPayment(true);
     console.log(response.data);
 
